@@ -125,8 +125,9 @@ main :: proc() {
         }
 
         // Print out the character buffer.
-		tigr.print(screen, tFont, 160, 222, tigr.rgb(255,255,255), strings.clone_to_cstring(fmt.aprint("Chars: %s", chars)));
-        
+        fmtChars := strings.clone_to_cstring(fmt.aprint("Chars: %s", chars));
+		tigr.print(screen, tFont, 160, 222, tigr.rgb(255,255,255), fmtChars);
+        delete(fmtChars);
         // Update the window.
         tigr.update(screen);
     }
